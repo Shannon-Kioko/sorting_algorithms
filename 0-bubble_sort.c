@@ -12,10 +12,10 @@ void swap(int *xp, int *yp)
 	*yp = temp;
 }
 /**
-bubble_sort - function to bubble sort
-
-@array: array to be sorted
-@size: size of array
+ * bubble_sort - function to bubble sort
+ * 
+ * @array: array to be sorted
+ * @size: size of array
 **/
 void bubble_sort(int *array, size_t size)
 {
