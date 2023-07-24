@@ -1,8 +1,8 @@
 #include "sort.h"
 /**
-swap - swaps two input integer vals
-@xp: First int parameter
-@yp: First int parameter
+ * swap - swaps two input integer vals
+ * @xp: First int parameter
+ * @yp: First int parameter
 **/
 
 void swap(int *xp, int *yp)
