@@ -6,20 +6,21 @@
 **/
 
 void swap(int *xp, int *yp)
-{	
+{
 	int temp = *xp;
 	*xp = *yp;
 	*yp = temp;
 }
 /**
  * bubble_sort - function to bubble sort
- * 
+ *
  * @array: array to be sorted
  * @size: size of array
 **/
 void bubble_sort(int *array, size_t size)
 {
 	int i, j;
+
 	for (i = 0; i < size - 1; i++)
 	{
 		for (j = 0; j < size - i - 1; j++)
