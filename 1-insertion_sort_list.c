@@ -11,8 +11,7 @@
 void insertion_sort_list(listint_t **list)
 {
 	if (*list == NULL || (*list)->next == NULL)
-		/* Guard clause if the list is empty or only has one element */
-		return;
+		return; /* Guard clause if the list is empty or only has one element */
 	
 	/* Initializing a new list to hold the sorted nodes */
 	listint_t *sorted = NULL;
