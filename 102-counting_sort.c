@@ -57,7 +57,7 @@ void counting_sort(int *array, size_t size)
     print_array(counting_array, max_value + 1);
 
     /* Modify the counting array to store the correct positions of each element */
-    for (i = 1; i <= max_value; i++)
+    for (i = 1; (int)i <= max_value; i++)
         counting_array[i] += counting_array[i - 1];
 
     /* Create a temporary output array to store the sorted elements */
