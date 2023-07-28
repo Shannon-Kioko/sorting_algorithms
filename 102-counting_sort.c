@@ -5,12 +5,12 @@ void counting_sort(int *array, size_t size)
     int *output_array;
     int *counting_array;
     int max_value;
+    size_t i;
 
     if (array == NULL || size < 2)
         return;
 
     max_value = array[0];
-    size_t i;
 
     /* Find the maximum value in the array to determine the counting array size */
     for (i = 1; i < size; i++)
