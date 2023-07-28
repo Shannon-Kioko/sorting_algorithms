@@ -6,7 +6,7 @@
  * @item1: Index of the first element to swap.
  * @item2: Index of the second element to swap.
  */
-void swap(int *array, ssize_t item1, ssize_t item2)
+void swap_quicksort(int *array, ssize_t item1, ssize_t item2)
 {
     int tmp;
 
