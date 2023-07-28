@@ -1,5 +1,5 @@
-#IFNDEF SORT_H
-#DEFINE SORT_H
+#ifndef SORT_H
+#define SORT_H
 
 #define SORT_ASCENDING 1
 #define SORT_DESCENDING -1
@@ -32,4 +32,4 @@ typedef struct listint_s
 } listint_t;
 
 
-#ENDIF
+#endif /* SORT_H */
