@@ -19,7 +19,7 @@ void swap(int *xp, int *yp)
 **/
 void bubble_sort(int *array, size_t size)
 {
-	int i, j;
+	int i, j, k;
 
 	for (i = 0; i < size - 1; i++)
 	{
@@ -29,7 +29,7 @@ void bubble_sort(int *array, size_t size)
 			{
 				swap(&array[j], &array[j + 1]);
 				/** Print the array after each swap **/
-				for (int k = 0; k < size; k++)
+				for (k = 0; k < size; k++)
 					printf("%d ", array[k]);
 				printf("\n");
 			}
