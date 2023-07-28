@@ -16,7 +16,7 @@ listint_t *get_last_node(listint_t *h);
 void swap_nodes(listint_t **list, listint_t *node);
 void insertion_sort_list(listint_t **list);
 
- 
+
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -26,9 +26,9 @@ void insertion_sort_list(listint_t **list);
  */
 typedef struct listint_s
 {
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
 
 
