@@ -7,9 +7,9 @@
  */
 void swap(int *xp, int *yp)
 {
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
 }
 
 /**
@@ -21,24 +21,24 @@ void swap(int *xp, int *yp)
  */
 void selection_sort(int *array, size_t size)
 {
-    size_t i, j, min_idx;
+	size_t i, j, min_idx;
 
-    for (i = 0; i < size - 1; i++)
-    {
-        min_idx = i;
-        for (j = i + 1; j < size; j++)
-        {
-            if (array[j] < array[min_idx])
-                min_idx = j;
-        }
+	for (i = 0; i < size - 1; i++)
+	{
+		min_idx = i;
+		for (j = i + 1; j < size; j++)
+		{
+			if (array[j] < array[min_idx])
+				min_idx = j;
+		}
 
-        if (min_idx != i)
-        {
-            swap(&array[i], &array[min_idx]);
-            /** Print the array after each swap **/
-            for (j = 0; j < size; j++)
-                printf("%d ", array[j]);
-            printf("\n");
-        }
-    }
+		if (min_idx != i)
+		{
+			swap(&array[i], &array[min_idx]);
+			/** Print the array after each swap **/
+			for (j = 0; j < size; j++)
+				printf("%d ", array[j]);
+			printf("\n");
+		}
+	}
 }
