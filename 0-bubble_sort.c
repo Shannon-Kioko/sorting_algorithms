@@ -30,7 +30,7 @@ void bubble_sort(int *array, size_t size)
 				swap(&array[j], &array[j + 1]);
 				/** Print the array after each swap **/
 				for (k = 0; k < size; k++)
-					printf("%zu ", array[k]);
+					printf("%u ", array[k]);
 				printf("\n");
 			}
 		}
