@@ -9,19 +9,19 @@
  */
 void swap_nodes(listint_t **list, listint_t *node)
 {
-    node->next->prev = node->prev;
+	node->next->prev = node->prev;
 
-    if (node->next->prev)
-        node->prev->next = node->next;
-    else
-        *list = node->next;
+	if (node->next->prev)
+		node->prev->next = node->next;
+	else
+		*list = node->next;
 
-    node->prev = node->next;
-    node->next = node->next->next;
-    node->prev->next = node;
+	node->prev = node->next;
+	node->next = node->next->next;
+	node->prev->next = node;
 
-    if (node->next)
-        node->next->prev = node;
+	if (node->next)
+		node->next->prev = node;
 }
 
 /**
@@ -32,12 +32,12 @@ void swap_nodes(listint_t **list, listint_t *node)
  */
 listint_t *get_last_node(listint_t *h)
 {
-    listint_t *current_node = h;
+	listint_t *current_node = h;
 
-    while (current_node->next != NULL)
-        current_node = current_node->next;
+	while (current_node->next != NULL)
+		current_node = current_node->next;
 
-    return current_node;
+	return current_node;
 }
 
 /**
@@ -49,40 +49,40 @@ listint_t *get_last_node(listint_t *h)
  */
 void cocktail_sort_list(listint_t **list)
 {
-    listint_t *current_node = NULL, *start_node = NULL, *end_node = NULL;
-    int sorting_direction = SORT_ASCENDING;
+	listint_t *current_node = NULL, *start_node = NULL, *end_node = NULL;
+	int sorting_direction = SORT_ASCENDING;
 
-    if (!list || !(*list) || !(*list)->next)
-        return;
+	if (!list || !(*list) || !(*list)->next)
+		return;
 
-    current_node = *list;
-    start_node = current_node;
-    end_node = get_last_node(*list);
+	current_node = *list;
+	start_node = current_node;
+	end_node = get_last_node(*list);
 
-    while (start_node != end_node)
-    {
-        if (current_node->n == current_node->next->n)
-            break;
-        else if (current_node->n > current_node->next->n && sorting_direction == SORT_ASCENDING)
-            swap_nodes(list, current_node), print_list(*list);
-        else if (current_node->next->n < current_node->n && sorting_direction == SORT_DESCENDING)
-            swap_nodes(list, current_node), current_node = current_node->prev, print_list(*list);
-        else if (sorting_direction == SORT_ASCENDING)
-            current_node = current_node->next;
-        else if (sorting_direction == SORT_DESCENDING)
-            current_node = current_node->prev;
+	while (start_node != end_node)
+	{
+		if (current_node->n == current_node->next->n)
+			break;
+		else if (current_node->n > current_node->next->n && sorting_direction == SORT_ASCENDING)
+			swap_nodes(list, current_node), print_list(*list);
+		else if (current_node->next->n < current_node->n && sorting_direction == SORT_DESCENDING)
+			swap_nodes(list, current_node), current_node = current_node->prev, print_list(*list);
+		else if (sorting_direction == SORT_ASCENDING)
+			current_node = current_node->next;
+		else if (sorting_direction == SORT_DESCENDING)
+			current_node = current_node->prev;
 
-        if (sorting_direction == SORT_DESCENDING && current_node->next == start_node)
-        {
-            sorting_direction = SORT_ASCENDING;
-            current_node = current_node->next;
-        }
+		if (sorting_direction == SORT_DESCENDING && current_node->next == start_node)
+		{
+			sorting_direction = SORT_ASCENDING;
+			current_node = current_node->next;
+		}
 
-        if (sorting_direction == SORT_ASCENDING && current_node->prev == end_node)
-        {
-            end_node = end_node->prev;
-            sorting_direction = SORT_DESCENDING;
-            current_node = current_node->prev;
-        }
-    }
+		if (sorting_direction == SORT_ASCENDING && current_node->prev == end_node)
+		{
+			end_node = end_node->prev;
+			sorting_direction = SORT_DESCENDING;
+			current_node = current_node->prev;
+		}
+	}
 }
