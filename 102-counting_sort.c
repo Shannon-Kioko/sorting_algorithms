@@ -2,12 +2,14 @@
 
 void counting_sort(int *array, size_t size)
 {
-    int *output_array = (int *)malloc(size * sizeof(int));
+    int *output_array;
+    int *counting_array;
+    int max_value;
 
     if (array == NULL || size < 2)
         return;
 
-    int max_value = array[0];
+    max_value = array[0];
     size_t i;
 
     /* Find the maximum value in the array to determine the counting array size */
@@ -18,7 +20,7 @@ void counting_sort(int *array, size_t size)
     }
 
     /* Create the counting array of size max_value + 1 and initialize with zeros */
-    int *counting_array = (int *)calloc(max_value + 1, sizeof(int));
+    counting_array = (int *)calloc(max_value + 1, sizeof(int));
     if (counting_array == NULL)
     {
         fprintf(stderr, "Memory allocation failed.\n");
@@ -31,7 +33,7 @@ void counting_sort(int *array, size_t size)
 
     /* Print the counting array */
     printf("Counting array: ");
-    for (i = 0; i <= max_value; i++)
+    for (i = 0; (int)i <= max_value; i++)
         printf("%d, ", counting_array[i]);
     printf("\n");
 
@@ -41,6 +43,7 @@ void counting_sort(int *array, size_t size)
         counting_array[i] += counting_array[i - 1];
 
     /* Create a temporary output array to store the sorted elements */
+    output_array = (int *)malloc(size * sizeof(int));
     if (output_array == NULL)
     {
         fprintf(stderr, "Memory allocation failed.\n");
