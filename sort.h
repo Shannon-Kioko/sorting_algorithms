@@ -26,6 +26,7 @@ void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void swap(int *xp, int *yp);
 void bubble_sort(int *array, size_t size);
+void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 listint_t *get_last_node(listint_t *h);
 void swap_nodes(listint_t **list, listint_t *node);
