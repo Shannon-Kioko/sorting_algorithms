@@ -14,14 +14,13 @@
  * @prev: Pointer to the previous element of the list
  * @next: Pointer to the next element of the list
  */
-struct listint_s
+typedef struct listint_s
 {
-	const int n;
-	struct listint_s *prev;
-	struct listint_s *next;
-};
+    const int n;
+    struct listint_s *prev;
+    struct listint_s *next;
+} listint_t;
 
-typedef struct listint_s listint_t;
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void swap(int *xp, int *yp);
@@ -33,5 +32,9 @@ listint_t *get_last_node(listint_t *h);
 void swap_nodes(listint_t **list, listint_t *node);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
+void swap_quicksort(int *array, ssize_t item1, ssize_t item2);
+int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size);
+void quicksort_recursive(int *array, ssize_t first, ssize_t last, size_t size);
+void quick_sort(int *array, size_t size);
 
 #endif /* SORT_H */
