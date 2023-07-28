@@ -1,5 +1,26 @@
 #include "sort.h"
 
+/**
+ * print_array - Prints an array of integers
+ *
+ * @array: The array to be printed
+ * @size: Number of elements in @array
+ */
+void print_array(const int *array, size_t size)
+{
+    size_t i;
+
+    i = 0;
+    while (array && i < size)
+    {
+        if (i > 0)
+            printf(", ");
+        printf("%d", array[i]);
+        ++i;
+    }
+    printf("\n");
+}
+
 void counting_sort(int *array, size_t size)
 {
     int *output_array;
@@ -33,13 +54,10 @@ void counting_sort(int *array, size_t size)
 
     /* Print the counting array */
     printf("Counting array: ");
-    for (i = 0; (int)i <= max_value; i++)
-        printf("%d, ", counting_array[i]);
-    printf("\n");
+    print_array(counting_array, max_value + 1);
 
     /* Modify the counting array to store the correct positions of each element */
-    
-    for (i = 1; (int)i <= max_value; i++)
+    for (i = 1; i <= max_value; i++)
         counting_array[i] += counting_array[i - 1];
 
     /* Create a temporary output array to store the sorted elements */
@@ -50,6 +68,10 @@ void counting_sort(int *array, size_t size)
         free(counting_array);
         return;
     }
+
+    /* Initialize output_array with zeros */
+    for (i = 0; i < size; i++)
+        output_array[i] = 0;
 
     /* Populate the output array using the counting array */
     for (i = size - 1; i < size; i--)
