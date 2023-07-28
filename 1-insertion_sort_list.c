@@ -38,6 +38,6 @@ void insertion_sort_list(listint_t **list)
 		current->prev = *sorted_ptr;
 		*sorted_ptr = current;
 	}
-
+	
 	*list = sorted; /* Update the original list to point to the sorted list */
 }
