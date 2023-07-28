@@ -64,9 +64,16 @@ void cocktail_sort_list(listint_t **list)
 		if (current_node->n == current_node->next->n)
 			break;
 		else if (current_node->n > current_node->next->n && sorting_direction == SORT_ASCENDING)
-			swap_nodes(list, current_node), print_list(*list);
+		{
+			swap_nodes(list, current_node);
+			print_list(*list);
+		}
 		else if (current_node->next->n < current_node->n && sorting_direction == SORT_DESCENDING)
-			swap_nodes(list, current_node), current_node = current_node->prev, print_list(*list);
+		{
+			swap_nodes(list, current_node);
+			current_node = current_node->prev;
+			print_list(*list);
+		}
 		else if (sorting_direction == SORT_ASCENDING)
 			current_node = current_node->next;
 		else if (sorting_direction == SORT_DESCENDING)
