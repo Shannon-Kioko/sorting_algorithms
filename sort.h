@@ -18,7 +18,7 @@ void insertion_sort_list(listint_t **list);
 
  
 /**
- * struct listint_s - Doubly linked list node
+ * struct listint_t - Doubly linked list node
  *
  * @n: Integer stored in the node
  * @prev: Pointer to the previous element of the list
