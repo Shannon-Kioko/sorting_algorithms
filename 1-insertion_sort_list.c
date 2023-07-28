@@ -12,7 +12,7 @@ void insertion_sort_list(listint_t **list)
 {
 	if (*list == NULL || (*list)->next == NULL)
 		return; /* Guard clause if the list is empty or only has one element */
-	
+
 	/* Initializing a new list to hold the sorted nodes */
 	listint_t *sorted = NULL;
 
@@ -38,6 +38,6 @@ void insertion_sort_list(listint_t **list)
 		current->prev = *sorted_ptr;
 		*sorted_ptr = current;
 	}
-	
+
 	*list = sorted; /* Update the original list to point to the sorted list */
 }
