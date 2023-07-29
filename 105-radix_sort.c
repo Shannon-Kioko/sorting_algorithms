@@ -8,7 +8,7 @@
  *
  * Return: The maximum element from the array.
  */
-int get_max(int *array, size_t size)
+int get_max(int *array, int size)
 {
 	int maxi, i;
 
