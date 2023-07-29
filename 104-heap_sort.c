@@ -43,11 +43,13 @@ void heap_sort(int *array, size_t size)
         return;
 
     /* Build a max heap from the array */
-    for (int i = size / 2 - 1; i >= 0; i--)
+    int i;
+    for (i = size / 2 - 1; i >= 0; i--)
         sift_down(array, size, i);
 
     /* Extract elements from the heap and adjust the heap */
-    for (int i = size - 1; i > 0; i--)
+    int i;
+    for (i = size - 1; i > 0; i--)
     {
         int temp = array[0];
         array[0] = array[i];
