@@ -1,9 +1,9 @@
 #include "sort.h"
 
 /**
- * swap_ints - Swap two integers in an array.
- * @a: The first integer to swap.
- * @b: The second integer to swap.
+ * swap - Swap two integers in an array.
+ * @xp: The first integer to swap.
+ * @yp: The second integer to swap.
  */
 void swap(int *xp, int *yp)
 {
