@@ -37,7 +37,7 @@ listint_t *get_last_node(listint_t *h)
 	while (current_node->next != NULL)
 		current_node = current_node->next;
 
-	return current_node;
+	return (current_node);
 }
 
 /**
