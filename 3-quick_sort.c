@@ -4,11 +4,11 @@
  * lomuto_partition - Lomuto partition scheme using the rightmost index as pivot.
  *
  * @array: Array of integers to be sorted.
- * @low: Index in the source array that begins the partition.
- * @high: Index in the source array that ends the partition.
+ * @low: Index in source array beginning the partition.
+ * @high: Index in source array ending the partition.
  * @size: Amount of elements in the array.
  *
- * Return: New index at which to start a new recursive partition.
+ * Return: New index to start a new recursive partition.
  */
 int lomuto_partition(int *array, size_t low, size_t high, size_t size)
 {
@@ -48,8 +48,8 @@ int lomuto_partition(int *array, size_t low, size_t high, size_t size)
  * recursive_lomuto_quicksort - sorts an array of integers using recursively using Lomuto quick sort.
  *
  * @array: Array of integers to be sorted.
- * @low: Index in the source array that begins the partition.
- * @high: Index in the source array that ends the partition.
+ * @low: Index in source array beginning the partition.
+ * @high: Index in the source array ending the partition.
  * @size: Amount of elements in the array.
  */
 void recursive_lomuto_quicksort(int *array, ssize_t low, ssize_t high, size_t size)
@@ -67,8 +67,8 @@ void recursive_lomuto_quicksort(int *array, ssize_t low, ssize_t high, size_t si
 /**
  * quick_sort - Sorts an array of integers in ascending order using the Lomuto partition scheme.
  *
- * @array: Array of integers to be sorted.
- * @size: Number of elements in the array.
+ * @array: Arr of integers to be sorted.
+ * @size: Numof elements in the array.
  */
 void quick_sort(int *array, size_t size)
 {
