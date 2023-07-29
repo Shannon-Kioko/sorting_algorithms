@@ -6,6 +6,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <stddef.h>
 
 /**
  * struct listint_s - Doubly linked list node
@@ -38,5 +40,9 @@ int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size);
 void quicksort_recursive(int *array, ssize_t first, ssize_t last, size_t size);
 void quick_sort(int *array, size_t size);
 listint_t *create_listint(const int *array, size_t size);
+int hoare_partition(int *array, size_t low, size_t high, size_t size);
+void hoare_quicksort_recursive(int *array, size_t low, size_t high, size_t size);
+void quick_sort_hoare(int *array, size_t size);
+
 
 #endif /* SORT_H */
