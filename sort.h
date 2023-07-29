@@ -46,7 +46,7 @@ listint_t *create_listint(const int *array, size_t size);
 int hoare_partition(int *array, size_t low, size_t high, size_t size);
 void hoare_quicksort_recursive(int *array, size_t low, size_t high, size_t size);
 void quick_sort_hoare(int *array, size_t size);
-int get_max(int *array, size_t size);
+int get_max(int *array, int size);
 void counting_sort_radix(int *array, size_t size, int exp);
 void radix_sort(int *array, size_t size);
 
