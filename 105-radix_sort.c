@@ -32,7 +32,7 @@ int get_max(int *array, size_t size)
  *
  * Return: Nothing.
  */
-void counting_sort(int *array, size_t size, int exp)
+void counting_sort_radix(int *array, size_t size, int exp)
 {
 	int *output = malloc(size * sizeof(int));
 	int count[10] = {0};
