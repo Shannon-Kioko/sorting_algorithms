@@ -40,6 +40,8 @@ void selection_sort(int *array, size_t size);
 int lomuto_partition(int *array, size_t low, size_t high, size_t size);
 void recursive_lomuto_quicksort(int *array, ssize_t low, ssize_t high, size_t size);
 void quick_sort(int *array, size_t size);
+void merge_sort(int *array, size_t size);
+void merge(int *array, int *left, size_t sizo_left, int *right, size_t sizo_right);
 listint_t *create_listint(const int *array, size_t size);
 int hoare_partition(int *array, size_t low, size_t high, size_t size);
 void hoare_quicksort_recursive(int *array, size_t low, size_t high, size_t size);
