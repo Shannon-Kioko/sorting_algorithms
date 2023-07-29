@@ -1,88 +1,68 @@
 #include "sort.h"
 
 /**
- * swap_nodes - Swap two nodes of a doubly linked list
- * @list: The double linked list that contains the nodes
- * @node: The current node to be swapped with the next node
+ * get_max - Get the maximum value in an array of integers.
+ * @array: An array of integers.
+ * @size: The size of the array.
  *
- * Return: Nothing
+ * Return: The maximum integer in the array.
  */
-void swap_nodes(listint_t **list, listint_t *node)
+int get_max(int *array, int size)
 {
-	node->next->prev = node->prev;
+	int maxi, i;
 
-	if (node->next->prev)
-		node->prev->next = node->next;
-	else
-		*list = node->next;
+	for (maxi = array[0], i = 1; i < size; i++)
+	{
+		if (array[i] > maxi)
+			maxi = array[i];
+	}
 
-	node->prev = node->next;
-	node->next = node->next->next;
-	node->prev->next = node;
-
-	if (node->next)
-		node->next->prev = node;
+	return (maxi);
 }
 
 /**
- * get_last_node - Gets the last node of a doubly linked list
- * @h: Pointer to the double linked list
+ * counting_sort - Sort an array of integers in ascending order
+ *                 using the counting sort algorithm.
+ * @array: An array of integers.
+ * @size: The size of the array.
  *
- * Return: Pointer to the last node
+ * Description: Prints the counting array after setting it up.
  */
-listint_t *get_last_node(listint_t *h)
+void counting_sort(int *array, size_t size)
 {
-	listint_t *current_node = h;
+	int *counts, *sorted, maxi, i;
 
-	while (current_node->next != NULL)
-		current_node = current_node->next;
-
-	return (current_node);
-}
-
-/**
- * cocktail_sort_list - Sorts a doubly linked list of integers
- * in ascending order using the Cocktail Shaker sort algorithm.
- * @list: Double pointer to the doubly linked list to be sorted
- *
- * Return: Nothing
- */
-void cocktail_sort_list(listint_t **list)
-{
-	listint_t *current_node = NULL, *start_node = NULL, *end_node = NULL;
-	int sorting_direction = SORT_ASCENDING;
-
-	if (!list || !(*list) || !(*list)->next)
+	if (array == NULL || size < 2)
 		return;
 
-	current_node = *list;
-	start_node = current_node;
-	end_node = get_last_node(*list);
-
-	while (start_node != end_node)
+	sorted = malloc(sizeof(int) * size);
+	if (sorted == NULL)
+		return;
+	maxi = get_max(array, size);
+	counts = malloc(sizeof(int) * (maxi + 1));
+	if (counts == NULL)
 	{
-		if (current_node->n == current_node->next->n)
-			break;
-		else if (current_node->n > current_node->next->n && sorting_direction == SORT_ASCENDING)
-			swap_nodes(list, current_node), print_list(*list);
-		else if (current_node->next->n < current_node->n && sorting_direction == SORT_DESCENDING)
-			swap_nodes(list, current_node), current_node = current_node->prev, print_list(*list);
-		else if (sorting_direction == SORT_ASCENDING)
-			current_node = current_node->next;
-		else if (sorting_direction == SORT_DESCENDING)
-			current_node = current_node->prev;
-
-		if (sorting_direction == SORT_DESCENDING && current_node->next == start_node)
-		{
-			sorting_direction = SORT_ASCENDING;
-			current_node = current_node->next;
-		}
-
-		if (sorting_direction == SORT_ASCENDING && current_node->prev == end_node)
-		{
-			end_node = end_node->prev;
-			sorting_direction = SORT_DESCENDING;
-			current_node = current_node->prev;
-		}
+		free(sorted);
+		return;
 	}
+
+	for (i = 0; i < (maxi + 1); i++)
+		counts[i] = 0;
+	for (i = 0; i < (int)size; i++)
+		counts[array[i]] += 1;
+	for (i = 0; i < (maxi + 1); i++)
+		counts[i] += counts[i - 1];
+	print_array(counts, maxi + 1);
+
+	for (i = 0; i < (int)size; i++)
+	{
+		sorted[counts[array[i]] - 1] = array[i];
+		counts[array[i]] -= 1;
+	}
+
+	for (i = 0; i < (int)size; i++)
+		array[i] = sorted[i];
+
+	free(sorted);
+	free(counts);
 }
