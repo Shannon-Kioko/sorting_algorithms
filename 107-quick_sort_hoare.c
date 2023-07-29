@@ -12,28 +12,28 @@
  */
 int hoare_partition(int *array, size_t low, size_t high, size_t size)
 {
-    int i, j, pivot, temp;
+	int i, j, pivot, temp;
 
-    pivot = array[high];
-    i = low - 1;
-    j = high + 1;
-    while (true)
-    {
-        do {
-            i++;
-        } while (array[i] < pivot);
-        do {
-            j--;
-        } while (array[j] > pivot);
-        if (i == j)
-            return (j - 1);
-        else if (i > j)
-            return (j);
-        temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-        print_array(array, size);
-    }
+	pivot = array[high];
+	i = low - 1;
+	j = high + 1;
+	while (true)
+	{
+		do {
+			i++;
+		} while (array[i] < pivot);
+		do {
+			j--;
+		} while (array[j] > pivot);
+		if (i == j)
+			return (j - 1);
+		else if (i > j)
+			return (j);
+		temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+		print_array(array, size);
+	}
 }
 
 /**
@@ -44,18 +44,18 @@ int hoare_partition(int *array, size_t low, size_t high, size_t size)
  * @high: Index in the source array that ends the partition.
  * @size: Amount of elements in the array.
  *
- * Return: Nothing
+ * Return: Nothing.
  */
 void hoare_quicksort_recursive(int *array, size_t low, size_t high, size_t size)
 {
-    size_t border;
+	size_t border;
 
-    if (low < high)
-    {
-        border = hoare_partition(array, low, high, size);
-        hoare_quicksort_recursive(array, low, border, size);
-        hoare_quicksort_recursive(array, border + 1, high, size);
-    }
+	if (low < high)
+	{
+		border = hoare_partition(array, low, high, size);
+		hoare_quicksort_recursive(array, low, border, size);
+		hoare_quicksort_recursive(array, border + 1, high, size);
+	}
 }
 
 /**
@@ -64,12 +64,12 @@ void hoare_quicksort_recursive(int *array, size_t low, size_t high, size_t size)
  * @array: Array of integers to be sorted.
  * @size: Number of elements in the array.
  *
- * Return: Nothing
+ * Return: Nothing.
  */
 void quick_sort_hoare(int *array, size_t size)
 {
-    if (!array || size < 2)
-        return;
+	if (!array || size < 2)
+		return;
 
-    hoare_quicksort_recursive(array, 0, size - 1, size);
+	hoare_quicksort_recursive(array, 0, size - 1, size);
 }
