@@ -1,3 +1,5 @@
+#include "sort.h"
+
 /**
  * sift_down - Helper function to maintain the max heap property of a binary tree.
  *
