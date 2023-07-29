@@ -8,18 +8,17 @@
  *
  * Return: The maximum element from the array.
  */
-int get_max(int *array, size_t size)
+int get_max(int *array, int size)
 {
-	int max = array[0];
-	size_t i;
+	int maxi, i;
 
-	for (i = 1; i < size; i++)
+	for (maxi = array[0], i = 1; i < size; i++)
 	{
-		if (array[i] > max)
-			max = array[i];
+		if (array[i] > maxi)
+			maxi = array[i];
 	}
 
-	return (max);
+	return (maxi);
 }
 
 /**
@@ -79,7 +78,7 @@ void radix_sort(int *array, size_t size)
 
 	for (exp = 1; max / exp > 0; exp *= 10)
 	{
-		counting_sort(array, size, exp);
+		counting_sort_radix(array, size, exp);
 		print_array(array, size);
 	}
 }
