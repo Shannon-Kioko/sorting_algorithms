@@ -28,6 +28,7 @@ typedef struct listint_s listint_t;
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void swap(int *xp, int *yp);
+void nodes_swapper(listint_t **h, listint_t **n1, listint_t *n2);
 void bubble_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
