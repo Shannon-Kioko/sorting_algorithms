@@ -39,16 +39,16 @@ void sift_down(int *array, size_t size, size_t index)
  */
 void heap_sort(int *array, size_t size)
 {
+    int i;
+
     if (array == NULL || size < 2)
         return;
 
     /* Build a max heap from the array */
-    int i;
     for (i = size / 2 - 1; i >= 0; i--)
         sift_down(array, size, i);
 
     /* Extract elements from the heap and adjust the heap */
-    int i;
     for (i = size - 1; i > 0; i--)
     {
         int temp = array[0];
