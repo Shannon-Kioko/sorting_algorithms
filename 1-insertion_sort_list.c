@@ -2,7 +2,7 @@
 
 /**
  * insertion_sort_list - Sorts a doubly linked list of integers
- *                       in ascending order using insertion sort algorithm.
+ *                       in ascending order using the insertion sort algorithm.
  *
  * @list: Pointer to a pointer to the head of the linked list.
  *
@@ -10,34 +10,34 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	if (*list == NULL || (*list)->next == NULL)
-		return; /* Guard clause if the list is empty or only has one element */
+	/* Initialize a new list to hold the sorted nodes */
+	listint_t *current, **ptr_sorted, *sorted = NULL;
 
-	/* Initializing a new list to hold the sorted nodes */
-	listint_t *sorted = NULL;
+	if (*list == NULL || (*list)->next == NULL)
+		return;
 
 	while (*list != NULL)
 	{
-		listint_t *current = *list;
-		listint_t **sorted_ptr = &sorted;
+		current = *list;
+		ptr_sorted = &sorted;
 
 		*list = (*list)->next; /* Move to the next node in the original list */
 
 		/* Find the correct position in the sorted list to insert the current node */
-		while (*sorted_ptr != NULL && (*sorted_ptr)->n < current->n)
+		while (*ptr_sorted != NULL && (*ptr_sorted)->n < current->n)
 		{
-			sorted_ptr = &(*sorted_ptr)->next;
+			ptr_sorted = &(*ptr_sorted)->next;
 		}
 
 		/* Insert the current node into the sorted list */
-		current->next = *sorted_ptr;
-		if (*sorted_ptr != NULL)
+		current->next = *ptr_sorted;
+		if (*ptr_sorted != NULL)
 		{
-			(*sorted_ptr)->prev = current;
+			(*ptr_sorted)->prev = current;
 		}
-		current->prev = *sorted_ptr;
-		*sorted_ptr = current;
+		current->prev = *ptr_sorted;
+		*ptr_sorted = current;
 	}
 
-	*list = sorted; /* Update the original list to point to the sorted list */
+	*list = sorted; /* original list points to the sorted list */
 }
