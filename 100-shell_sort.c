@@ -35,13 +35,7 @@ void shell_sort(int *array, size_t size)
         }
 
         /* Print the array after each interval decrease */
-        for (i = 0; i < size; i++)
-        {
-            printf("%d", array[i]);
-            if (i < size - 1)
-                printf(", ");
-        }
-        printf("\n");
+       print_array(array, size);
 
         /* Calculate the next interval using the Knuth sequence */
         interval = (interval - 1) / 3;
