@@ -1,34 +1,46 @@
-#include "sort.h"
+/**
+ * sift_down - Helper function to maintain the max heap property of a binary tree.
+ *
+ * @array: An array of integers representing a binary tree.
+ * @size: The size of the array/tree.
+ * @base: The index of the base row of the tree.
+ * @root: The root node of the binary tree.
+ */
+void sift_down(int *array, size_t size, size_t base, size_t root)
+{
+    size_t left_child, right_child, largest_node;
+
+    left_child = 2 * root + 1;
+    right_child = 2 * root + 2;
+    largest_node = root;
+
+    if (left_child < base && array[left_child] > array[largest_node])
+        largest_node = left_child;
+    
+    if (right_child < base && array[right_child] > array[largest_node])
+        largest_node = right_child;
+
+    if (largest_node != root)
+    {
+        int_swapper(array + root, array + largest_node);
+        print_array(array, size);
+        sift_down(array, size, base, largest_node);
+    }
+}
 
 /**
- * sift_down - Helper function to perform the sift-down operation on a heap.
+ * build_max_heap - Build a max heap from a binary tree represented by an array.
  *
- * @array: Array of integers representing the heap.
- * @size: Size of the heap.
- * @index: Index of the element to sift down.
+ * @array: An array of integers representing a binary tree.
+ * @size: The size of the array/tree.
  */
-void sift_down(int *array, size_t size, size_t index)
+void build_max_heap(int *array, size_t size)
 {
-    size_t max_index = index;
-    size_t left_child = 2 * index + 1;
-    size_t right_child = 2 * index + 2;
+    if (array == NULL || size < 2)
+        return;
 
-    if (left_child < size && array[left_child] > array[max_index])
-        max_index = left_child;
-
-    if (right_child < size && array[right_child] > array[max_index])
-        max_index = right_child;
-
-    if (max_index != index)
-    {
-        int temp = array[index];
-        array[index] = array[max_index];
-        array[max_index] = temp;
-
-        print_array(array, size);
-
-        sift_down(array, size, max_index);
-    }
+    for (int i = size / 2 - 1; i >= 0; i--)
+        sift_down(array, size, size, i);
 }
 
 /**
@@ -39,24 +51,15 @@ void sift_down(int *array, size_t size, size_t index)
  */
 void heap_sort(int *array, size_t size)
 {
-    int i;
-
     if (array == NULL || size < 2)
         return;
 
-    /* Build a max heap from the array */
-    for (i = size / 2 - 1; i >= 0; i--)
-        sift_down(array, size, i);
+    build_max_heap(array, size);
 
-    /* Extract elements from the heap and adjust the heap */
-    for (i = size - 1; i > 0; i--)
+    for (int i = size - 1; i > 0; i--)
     {
-        int temp = array[0];
-        array[0] = array[i];
-        array[i] = temp;
-
+        int_swapper(array, array + i);
         print_array(array, size);
-
-        sift_down(array, i, 0);
+        sift_down(array, size, i, 0);
     }
 }
